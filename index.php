@@ -144,12 +144,6 @@ $base_url = 'http://localhost/social-media-downloader/';
                                 <!-- <video class="img-fluid rounded w-100" controls autoplay controlsList="nodownload"></video> -->
                                 <div class="magic-box">
                                     <video id="video-generated" class="video-js magic-item" controls poster="">
-                                        <!-- <source id="video-source" src="" type="video/mp4" />
-                                        <p class="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a
-                                            web browser that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                                        </p> -->
                                     </video>
                                 </div>
                                 <!-- <iframe id="video-generated" class="img-fluid rounded w-100 embed-responsive-item" src=""></iframe> -->
@@ -159,8 +153,7 @@ $base_url = 'http://localhost/social-media-downloader/';
                                     <h1 class="mb-3">Line Video</h1>
                                     <p id="filename-generated"></p>
                                 </div>
-                                <a href="" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
-                                <a href="" class="btn btn-dark py-3 px-4"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
+                                <a id="download" target="_blank" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-download me-2"></i> Download</a>
                             </div>
                         </div>
                     </div>
