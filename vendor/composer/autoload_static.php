@@ -9,8 +9,8 @@ class ComposerStaticInit7fc804e79c139b0491ea8037dcfb70b8
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
     );
 
@@ -18,11 +18,16 @@ class ComposerStaticInit7fc804e79c139b0491ea8037dcfb70b8
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
             'Psr\\Cache\\' => 10,
             'Phpfastcache\\Tests\\' => 19,
             'Phpfastcache\\' => 13,
+        ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
         ),
         'I' => 
         array (
@@ -34,12 +39,20 @@ class ComposerStaticInit7fc804e79c139b0491ea8037dcfb70b8
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
+        'B' => 
+        array (
+            'Browser\\' => 8,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -61,6 +74,10 @@ class ComposerStaticInit7fc804e79c139b0491ea8037dcfb70b8
         array (
             0 => __DIR__ . '/..' . '/phpfastcache/phpfastcache/lib/Phpfastcache',
         ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
         'InstagramScraper\\' => 
         array (
             0 => __DIR__ . '/..' . '/raiym/instagram-php-scraper/src/InstagramScraper',
@@ -76,6 +93,10 @@ class ComposerStaticInit7fc804e79c139b0491ea8037dcfb70b8
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Browser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpcasperjs/phpcasperjs/src',
         ),
     );
 

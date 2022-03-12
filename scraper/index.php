@@ -2,10 +2,11 @@
 date_default_timezone_set("Asia/Jakarta");
 set_time_limit(0);
 require '../vendor/simple_html_dom/simple_html_dom.php';
+require '../vendor/autoload.php';
 
 use Phpfastcache\Helper\Psr16Adapter;
 
-require __DIR__ . '/../vendor/autoload.php';
+use Browser\Casper;
 
 function postValue($key)
 {
@@ -48,11 +49,23 @@ $GLOBALS['result']->filename = '';
 $GLOBALS['result']->media = '';
 
 try {
-    $url = postValue('url');
+    // $url = postValue('url');
+    $url = 'https://linevoom.line.me/post/1164595693501078522/';
     $GLOBALS['result']->url = $url;
-    $document = file_get_html($url);
-    // echo $document;
-    // die;
+
+    $casper = new Casper();
+    $casper->setOptions(array(
+        'ignore-ssl-errors' => 'yes'
+    ));
+    $casper->start($url);
+    $casper->wait(5000);
+    $output = $casper->getOutput();
+    $casper->run();
+    $html = $casper->getHtml();
+    // $document = file_get_html($url);
+    $document = str_get_html($html);
+    echo $document;
+    die;
     //media
     $media = detectMedia($url);
     $GLOBALS['result']->media = $media;
@@ -72,7 +85,6 @@ try {
         // echo "Video Low Resolution: {$media->getVideoLowResolutionUrl()}\n\n";
         // echo "Video Standard Resolution: {$media->getVideoStandardResolutionUrl()}\n\n";
         $source = $media->getVideoStandardResolutionUrl();
-        // $source = "https://media.sf-converter.com/get?__sig=AUV-uDIY9H5otgKTCRXYCA&__expires=1645173849&uri=https%3A%2F%2Finstagram.fdnk3-2.fna.fbcdn.net%2Fv%2Ft50.2886-16%2F273902630_1039064320009795_7013114122342133466_n.mp4%3F_nc_ht%3Dinstagram.fdnk3-2.fna.fbcdn.net%26_nc_cat%3D107%26_nc_ohc%3D3_BZR-ScwbEAX-uYfYg%26edm%3DAABBvjUBAAAA%26ccb%3D7-4%26oe%3D62116CAD%26oh%3D00_AT9E9DnHNZN5Sje1ex0LXqoTEljl6ELJwaa0O0by0Eq7ZQ%26_nc_sid%3D83d603%26dl%3D1&filename=Don't%20worry%20hooman%20we%20got%20the%20mail%20for%20you!%20-%20Follow%20%40barked%20for%20more%20funny%20dog%20videos!-%20%C2%A0%40sydg32-%23barked%C2%A0%23dog%C2%A0%23doggo%C2%A0%23Dachshund%20%239gag.mp4&ua=-&referer=https%3A%2F%2Fwww.instagram.com%2F";
         $poster = $media->getImageHighResolutionUrl();
         $title = $media->getCaption();
         $filename = 'Instagram - ' . $title;
